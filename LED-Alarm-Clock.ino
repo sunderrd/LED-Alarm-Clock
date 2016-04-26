@@ -1,45 +1,59 @@
-//TO DO:
-//-Timer/clock
-//-Display modes
-//-Buttons; needed helper fucntions (shift register reading?)
-//-'Set' modes
-//-Tidy up
 
+//TO DO:
+//-COLOR COLOR COLOR COLOR !!!!!!!!!!
+//-Buttons; needed helper fucntions (shift register reading?)
+//-Sound
+//-Debounce?
+//-Tidy up
+//-Combine last_time vars? need more than one? no param or pointer?
+
+//TEST:
+//-Analog read
+//-Analog clock rewrite hand
+//-Sound
+//-Mode switch
+//-Bonus mode
+//-Pong background update
+
+//NOTES
+//-Odd error with numbers of size 2
+
+
+
+//--Libraries--//
 #include <Adafruit_GFX.h>   // Core graphics library
 #include <RGBmatrixPanel.h> // Hardware-specific library
-
-#define CLK 8  // MUST be on PORTB! (Use pin 11 on Mega)
-#define LAT A3
-#define OE  9
-#define A   A0
-#define B   A1
-#define C   A2
-
-RGBmatrixPanel matrix(A, B, C, CLK, LAT, OE, false);
+#include <Definitions.h>
+//--End--//
 
 //--GLOBALS--//
 long y[32];
 int color;
+int mode;
+unsigned long last_time;
+unsigned long analog_last_second;
+unsigned long last_sound_time;
+unsigned long last_pong_time;
+unsigned long last_time_flash;
+boolean flash_on;
+Time clk;
+Time alarm;
 //-----------//
 
 void setup() {
-  // put your setup code here, to run once:
   Serial.begin(9600);
   matrix.begin();
-  
-  nums_setup();
+  chars_setup();
+  circ_setup();
 
   //temp
-  color = matrix.Color333(1,0,0);
-  for (int i=0; i<5; i++) {
-    write_num(i, i*4, 0);
-  }
-  for (int i=5; i<10; i++) {
-    write_num(i, i*4-16, 7);
-  }
+  clk.hour = 11;
+  clk.minute = 24;
+  mode = TIME_SET;
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-  draw();
+  update_time();
+  mode_select();
+  execute_mode();
 }
