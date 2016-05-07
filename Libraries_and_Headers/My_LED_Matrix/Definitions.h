@@ -11,15 +11,15 @@
 #define A   A0
 #define B   A1
 #define C   A2
-#define BUZZ 0
+#define BUZZ 10
 
-#define UP      10
-#define LEFT    11
-#define DOWN    12
-#define RIGHT   13
-#define SELECT  A4
-#define MODE    1
-#define SNOOZE   A5
+#define UP_PIN      0
+#define LEFT_PIN    11
+#define DOWN_PIN    1
+#define RIGHT_PIN   13
+#define ALM_ON_PIN  A4
+#define MODE_PIN    12
+#define SNOOZE_PIN  A5
 
 //--Time struct; hours in 24 hr format
 typedef struct {
@@ -28,14 +28,27 @@ typedef struct {
 
 //--Modes
 #define CLASSIC     1
-#define PONG        3
-#define TIME_SET    4
-#define ALARM_SET   5
-#define ANALOG      2
+#define PONG        4
+#define TIME_SET    5
+#define ALARM_SET   6
+#define ANALOG_PREP 2
+#define ANALOG      3
 #define BONUS       10 //secret mode if special buttons pressed
+
+//--Pointer array values
+#define UP_POINT      1
+#define LEFT_POINT    5
+#define DOWN_POINT    0
+#define RIGHT_POINT   6
+#define ALM_ON_POINT  4
+#define MODE_POINT    2
+#define SNOOZE_POINT  3
 
 //--Constants
 const float pi = 3.14159265359;
+const int DEBOUNCE_DELAY = 50;
+const int ANALOG_CENTER_X = 15;
+const int ANALOG_CENTER_Y = 7;
 
 RGBmatrixPanel matrix(A, B, C, CLK, LAT, OE, false);
 
