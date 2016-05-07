@@ -27,7 +27,7 @@ void update_time() {
     clk.minute -= 60;
   }
 
-  if (clk.hour > 24) {
+  if (clk.hour >= 24) {
     clk.hour -= 24;
   }
 }

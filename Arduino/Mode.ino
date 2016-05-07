@@ -1,5 +1,5 @@
 
-//--------------MODE--------------//incomplete
+//--------------MODE--------------//bonus
 //---Manages mode selection
 //---Handles display/mode actions
 //--------------------------------//
@@ -8,14 +8,13 @@ const int BONUS_COUNT_MAX = 1000;
 
 //--Allows selection of mode via roulette
 void mode_select() {
-  if (mode == 0) mode = CLASSIC;
-  if (button_pressed(MODE)) {
-    mode++;
-  }
-  if (mode > 5 && mode != BONUS) mode = 1; //loops back to beginning of roulette
+  if (mode == 0) mode = TIME_SET;
+  if (button_pressed(MODE_PIN, &pressed_pointer[MODE_POINT])) mode++;
+  
+  if (mode > 6 && mode != BONUS) mode = 1; //loops back to beginning of roulette
 
   //Implements bonus mode
-  //if (read_analog(SELECT) && read_analog(SNOOZE)) bonus_count++;
+  //if (read_analog(ALM_ON) && read_analog(SNOOZE) && digitalRead(MODE)) bonus_count++;
   //if (bonus_count > BONUS_COUNT_MAX) mode = BONUS;
 }
 
@@ -35,14 +34,16 @@ void execute_mode() {
     draw();
     break;
   case ALARM_SET:
-    set_clk(alarm);
-    disp_set_clk(alarm);
+    set_clk(&alrm);
     draw();
     break;
   case TIME_SET:
-    set_clk(clk);
-    disp_set_clk(clk);
+    set_clk(&clk);
     draw();
+    break;
+  case ANALOG_PREP:
+    clear_display();
+    mode = ANALOG;
     break;
   case ANALOG:
     draw_analog();
@@ -54,6 +55,7 @@ void execute_mode() {
   default:
     mode = CLASSIC;
   }
+  
   reset_display();
 }
 

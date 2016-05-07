@@ -63,7 +63,7 @@ void move_ball() {
   ball_y += move_y;
 
   //-Vertical bounce
-  if (ball_y <= 6 || ball_y >= 15) move_y = -1*move_y;
+  if (ball_y <= 5 || ball_y >= 15) move_y = -1*move_y;
 
   //-Bounce off paddle
   if (ball_x == 1 && ball_y >= left_pad && ball_y <= left_pad+3) {
@@ -105,7 +105,7 @@ void move_paddle() {
       if (left_pad+1 < ball_y) left_pad_move = 1;
     } else {
       if (ball_x == 15) {
-        if (ball_y > 7 && ball_y < 15 && move_y < 0) {
+        if (ball_y > 5 && ball_y < 13 && move_y < 0) {
           left_pad_move = -1;
         } else {
           left_pad_move = 1;
@@ -122,7 +122,7 @@ void move_paddle() {
       if (right_pad+1 < ball_y) right_pad_move = 1;
     } else {
       if (ball_x == 16) {
-        if (ball_y > 7 && ball_y < 15 && move_y < 0) {
+        if (ball_y > 5 && ball_y < 13 && move_y < 0) {
           right_pad_move = -1;
         } else {
           right_pad_move = 1;
