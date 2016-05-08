@@ -1,10 +1,9 @@
 
-//------------CLOCK------------//done?
+//------------CLOCK------------//
 //---Controls clock functions
 //---Manages clock variables
 //---Includes timer functions
 //-----------------------------//
-
 
 //--Updates time values of clk
 void update_time() {

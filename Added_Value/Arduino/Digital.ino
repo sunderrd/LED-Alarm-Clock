@@ -1,8 +1,8 @@
 
-//-------------DIGITAL-------------//incomplete
+//-------------DIGITAL-------------//
 //---Handles digital clock display
 //---Includes mode for setting
-//-----primary time
+//-----times: clk and alrm
 //---------------------------------//
 
 const int HOUR_MAX = 23;

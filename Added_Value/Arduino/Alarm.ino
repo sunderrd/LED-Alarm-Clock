@@ -1,7 +1,7 @@
 
-//-------------ALARM-------------//incomplete
-//---Handles time set and
-//-----execution of alarm
+//-------------ALARM-------------//
+//---Handles execution of alarm
+//-----noise, switch and snooze
 //-------------------------------//
 
 int clk_temp, alrm_temp;
@@ -18,6 +18,7 @@ void alarm_sound() {
   }
 }
 
+//--Controls when/if alarm should be set off
 void check_alarm() {
   if (button_pressed(ALM_ON_PIN, &pressed_pointer[ALM_ON_POINT])) alarm_on = !alarm_on;
   clk_temp = clk.hour*60 + clk.minute;

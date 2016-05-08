@@ -1,14 +1,10 @@
 
-//-----------PONG GAME-----------//test
+//-----------PONG GAME-----------//wiki
 //---Manages display of the
 //-----pong-style clock
 //-------------------------------//
 
-const int PONG_FRAME_RATE = 250;
-const int BALL_X_START = 3;
-const int BALL_Y_START = 7;
-
-int left_score = 10, right_score = 23;
+int left_score = 0, right_score = 0;
 int ball_x = BALL_X_START, ball_y = BALL_Y_START;
 int move_x = 1, move_y = 1;
 int left_pad = 10, right_pad = 10;
@@ -92,10 +88,11 @@ void move_ball() {
   }
 
   //-Reset score when exceeds time maxes
-  if (left_score > 24) left_score = 1;
+  if (left_score > 23) left_score = 0;
   if (right_score > 59) right_score = 0;
 }
 
+//-Controls the movement of the paddle
 void move_paddle() {
   
   //-Move left paddle

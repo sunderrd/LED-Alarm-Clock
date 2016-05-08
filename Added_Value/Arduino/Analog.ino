@@ -1,26 +1,18 @@
 
-//--------------ANALOG--------------//incomplete
+//--------------ANALOG--------------//
 //---Manages analog clock display
 //----------------------------------//
 
-
-//--
+//--Draws image to screen
+//--Does not use y[] like other modes
 void draw_analog() {
-  //matrix.fillCircle(7,7,7, BLACK);
   matrix.drawCircle(ANALOG_CENTER_X,7,7, PURPLE);
   boolean toRemove = timer(1000, &analog_last_second);
   write_hand(false, toRemove, AQUA);
   write_hand(true, toRemove, BLUE);
 }
 
-//--
-void write_circle() {
-  for (int i=0; i<16; i++) {
-    y[i] |= circ[i];
-  }
-}
-
-//--
+//--Draws hour and minute hands to screen
 void write_hand(boolean isHour, boolean toRemove, int hand_color) {
   int hand_x, hand_y;
   int hr = clk.hour;

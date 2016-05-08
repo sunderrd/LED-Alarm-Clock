@@ -1,9 +1,8 @@
 
-//-----------------GRAPHICS-----------------//COLOR
+//-----------------GRAPHICS-----------------//
 //---Functions involving the display that
 //-----are not included in the library
 //------------------------------------------//
-
 
 //--Draws image based on y[] globals
 void draw() {

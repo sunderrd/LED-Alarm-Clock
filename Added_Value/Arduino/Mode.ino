@@ -1,10 +1,8 @@
 
-//--------------MODE--------------//bonus
+//--------------MODE--------------//
 //---Manages mode selection
 //---Handles display/mode actions
 //--------------------------------//
-
-const int BONUS_COUNT_MAX = 1000;
 
 //--Allows selection of mode via roulette
 void mode_select() {
@@ -12,10 +10,6 @@ void mode_select() {
   if (button_pressed(MODE_PIN, &pressed_pointer[MODE_POINT])) mode++;
   
   if (mode > 6 && mode != BONUS) mode = 1; //loops back to beginning of roulette
-
-  //Implements bonus mode
-  //if (read_analog(ALM_ON) && read_analog(SNOOZE) && digitalRead(MODE)) bonus_count++;
-  //if (bonus_count > BONUS_COUNT_MAX) mode = BONUS;
 }
 
 //--Executes given functions for each mode

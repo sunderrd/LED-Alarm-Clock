@@ -1,17 +1,9 @@
 
-//TO DO:
-//-Hour up
-//-Alarm display?
-//-Louder alarm?
-//-Tidy up
-
-//TEST:
-//-Bonus mode
-
-//NOTES
-//-Odd error with numbers of size 2
-
-
+/*
+ * LED Alarm Clock
+ * Created by: Ryan Sunderhaus
+ * Completed May 8, 2016
+ */
 
 //--Libraries--//
 #include <Adafruit_GFX.h>   // Core graphics library
@@ -39,15 +31,8 @@ Time alrm;
 //-----------//
 
 void setup() {
-  //Serial.begin(9600);
   matrix.begin();
   chars_setup();
-  circ_setup();
-
-  //temp
-  //clk.hour = 12;
-  //clk.minute = 0;
-  //mode = ANALOG;
 }
 
 void loop() {
