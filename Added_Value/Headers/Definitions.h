@@ -49,6 +49,9 @@ const float pi = 3.14159265359;
 const int DEBOUNCE_DELAY = 50;
 const int ANALOG_CENTER_X = 15;
 const int ANALOG_CENTER_Y = 7;
+const int PONG_FRAME_RATE = 250;
+const int BALL_X_START = 3;
+const int BALL_Y_START = 7;
 
 RGBmatrixPanel matrix(A, B, C, CLK, LAT, OE, false);
 
@@ -112,27 +115,5 @@ void chars_setup() { //numbers appear rotated due to bitshift process
 }
 //-----------END-------------//
 
-//---
-int circ[16];
-
-void circ_setup() {
-    circ[0]  = 0b0000011111100000;
-    circ[1]  = 0b0001100000011000;
-    circ[2]  = 0b0010000000000100;
-    circ[3]  = 0b0100000000000010;
-    circ[4]  = 0b0100000000000010;
-    circ[5]  = 0b1000000000000001;
-    circ[6]  = 0b1000000000000001;
-    circ[7]  = 0b1000000000000001;
-    circ[8]  = 0b1000000000000001;
-    circ[9]  = 0b1000000000000001;
-    circ[10] = 0b1000000000000001;
-    circ[11] = 0b0100000000000010;
-    circ[12] = 0b0100000000000010;
-    circ[13] = 0b0010000000000100;
-    circ[14] = 0b0001100000011000;
-    circ[15] = 0b0000011111100000;
-}
-//---END
 
 #endif /* Definitions_h */
